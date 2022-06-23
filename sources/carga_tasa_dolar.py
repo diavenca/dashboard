@@ -96,7 +96,7 @@ def leer_pagina(fecha):
 
 
 def transformar(df):
-    df.fecha = pd.to_datetime(df.fecha, dayfirst=True)
+    df.fecha = pd.to_datetime(df.fecha)
     df.alta = df.alta.astype(float)
     df.baja = df.baja.astype(float)
 
