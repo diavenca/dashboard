@@ -40,7 +40,7 @@ def devolver_soup(url):
     # obtener correctamente los caracteres acentuados
     resp.encoding = "utf-8"
     contenido = resp.content
-    soup = BeautifulSoup(contenido, 'lxml')    
+    soup = BeautifulSoup(contenido)    
 
     return soup
 
