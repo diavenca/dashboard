@@ -6,6 +6,19 @@ import pandas as pd
 import sources.graph as gr
 import sources.lectura_datos as lec
 
+st.set_page_config(
+    page_title='Rendimiento Vendedores', 
+    page_icon=':bar_chart:', 
+    layout="centered", 
+    initial_sidebar_state="auto", 
+    menu_items={
+         'Get Help': None,
+         'Report a bug': None,
+         'About': '''## Reporte de Ventas de Diavenca 
+         
+         Aplicación hecha por Diana Chacón Ocariz'''
+     }
+)
 
 # Lectura de datos
 df_ventas = lec.leer_ventas()

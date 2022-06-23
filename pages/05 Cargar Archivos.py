@@ -7,6 +7,19 @@ import pandas as pd
 # Librerías propias
 import sources.carga as cr
 
+st.set_page_config(
+    page_title='Carga de Datos', 
+    page_icon=':bar_chart:', 
+    layout="centered", 
+    initial_sidebar_state="auto", 
+    menu_items={
+         'Get Help': None,
+         'Report a bug': None,
+         'About': '''## Reporte de Ventas de Diavenca 
+         
+         Aplicación hecha por Diana Chacón Ocariz'''
+     }
+)
 
 st.title('Cargar Nuevos Datos')
 
@@ -28,11 +41,11 @@ df_ultimos.columns=['N° Factura', 'Fecha', 'Tipo de Venta']
 
 st.write(df_ultimos)
 
-files = st.file_uploader('Cargar Archivos Ventas', type=['xls'], accept_multiple_files=True, help='Cargue los archivos con las últimas ventas')
+files = st.file_uploader('Cargar Archivos Ventas', type=['xls'], key='up_ventas', accept_multiple_files=True, help='Cargue los archivos con las últimas ventas')
 
 if files:
 
-    if st.button('Procesar Datos'):
+    if st.button('Procesar Datos', key='pr_ventas'):
 
         for file in files:
 
@@ -47,11 +60,11 @@ st.subheader('Cargar Datos Stock')
 st.markdown('Seleccione el archivo con los datos del **Stock**.')
 
 
-files = st.file_uploader('Cargar Archivo Stock', type=['xls'], accept_multiple_files=True, help='Cargue los archivos con las últimas ventas')
+files = st.file_uploader('Cargar Archivo Stock', type=['xls'], key='up_stock', accept_multiple_files=False, help='Cargue los archivos con las últimas ventas')
 
 if files:
 
-    if st.button('Procesar Datos'):
+    if st.button('Procesar Datos', key='pr_ventas'):
 
         for file in files:
 

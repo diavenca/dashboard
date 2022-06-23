@@ -9,6 +9,19 @@ from datetime import date
 import sources.graph as gr
 import sources.lectura_datos as lec
 
+st.set_page_config(
+    page_title='Líneas de Productos', 
+    page_icon=':bar_chart:', 
+    layout="centered", 
+    initial_sidebar_state="auto", 
+    menu_items={
+         'Get Help': None,
+         'Report a bug': None,
+         'About': '''## Reporte de Ventas de Diavenca 
+         
+         Aplicación hecha por Diana Chacón Ocariz'''
+     }
+)
 
 # Lectura de datos
 BASE_DIR = Path.cwd()
@@ -47,19 +60,6 @@ st.subheader('Resumen de las métricas por Línea de Producto')
 st.markdown('**Seleccione una o varias Líneas para ver el detalle:**')
 
 df = gr.graph_table_select(df_linea_met_print)
-
-# df_linea_met_print.set_index('Línea', inplace=True)
-# df_linea_met_print.to_excel(f"{BASE_DIR / 'data/out/lineas_productos.xlsx'}")
-
-# st.markdown('**Descargue un archivo Excel con la lista de Líneas de Productos:**')
-# with open(f"{BASE_DIR / 'data/out/lineas_productos.xlsx'}", 'rb') as xlsx:
-#     st.download_button(
-#         label="Descargar Excel",
-#         data=xlsx,
-#         file_name='lineas_productos_{hoy}.xlsx',
-#         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-#     )
-
 
 if not df.empty :
 

@@ -2,8 +2,9 @@ import streamlit as st
 
 import pandas as pd
 
-from pathlib import Path
+
 from datetime import date
+import io
 
 # Librerías propias
 import sources.lectura_datos as lec
@@ -12,8 +13,22 @@ import sources.indispensables as ind
 
 #from st_aggrid import GridOptionsBuilder, AgGrid, GridUpdateMode, DataReturnMode
 
+st.set_page_config(
+    page_title='Productos Indispensables', 
+    page_icon=':bar_chart:', 
+    layout="centered", 
+    initial_sidebar_state="auto", 
+    menu_items={
+         'Get Help': None,
+         'Report a bug': None,
+         'About': '''## Reporte de Ventas de Diavenca 
+         
+         Aplicación hecha por Diana Chacón Ocariz'''
+     }
+)
+
 # Lectura de datos
-BASE_DIR = Path.cwd()
+buffer = io.BytesIO()
 hoy = date.today()
 df_ventas = lec.leer_ventas()
 df_stock = lec.leer_stock()
@@ -54,16 +69,19 @@ df = gr.graph_table_select(df_indispensables_print)
 
 df_indispensables_print.set_index('Código', inplace=True)
 
-# FILE = df_indispensables_print.to_excel('productos_indispensables.xlsx')
+with pd.ExcelWriter(buffer, engine='xlsxwriter') as writer:
+    # Write each dataframe to a different worksheet.
+    df_indispensables_print.to_excel(writer)
 
-# st.markdown('**Descargue un archivo Excel con la lista de Productos Indispensables:**')
-# with open(FILE, 'rb') as xlsx:
-# st.download_button(
-#     label="Descargar Excel",
-#     data=df_indispensables_print.to_excel('productos_indispensables.xlsx'),
-#     file_name=f'productos_indispensables_{hoy}.xlsx',
-#     mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-# )
+    # Close the Pandas Excel writer and output the Excel file to the buffer
+    writer.save()
+
+    st.download_button(
+        label="Descargar Excel",
+        data=buffer,
+        file_name=f'productos_indispensables_{hoy}.xlsx',
+        mime="application/vnd.ms-excel"
+    )
 
 if not df.empty :
 

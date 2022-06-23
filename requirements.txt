@@ -6,3 +6,4 @@ streamlit-aggrid
 beautifulsoup4
 openpyxl
 xlrd
+xlsxwriter
