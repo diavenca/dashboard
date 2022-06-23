@@ -4,3 +4,4 @@ altair
 plotly
 streamlit-aggrid
 beautifulsoup4
+openpyxl
