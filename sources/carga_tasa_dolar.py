@@ -1,13 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
-# Para saber el encoding utilizado por el servidor
-import chardet
 
 import re
 
 import pandas as pd
 from datetime import date, datetime
-import time
+
 
 import sources.bd as bd
 

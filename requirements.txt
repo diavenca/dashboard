@@ -3,3 +3,4 @@ pandas
 altair
 plotly
 streamlit-aggrid
+python-bs4
