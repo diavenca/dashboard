@@ -53,11 +53,11 @@ st.markdown('**Seleccione uno o varios productos para ver su evolución en el ti
 df = gr.graph_table_select(df_indispensables_print)
 
 df_indispensables_print.set_index('Código', inplace=True)
-FILE = f'data/out/productos_indispensables_{hoy}.xlsx'
-df_indispensables_print.to_excel(f"{BASE_DIR / FILE}")
+
+df_indispensables_print.to_excel(f"{BASE_DIR / 'data/out/productos_indispensables.xlsx'}")
 
 st.markdown('**Descargue un archivo Excel con la lista de Productos Indispensables:**')
-with open(f"{BASE_DIR / FILE}", 'rb') as xlsx:
+with open("{BASE_DIR / 'data/out/productos_indispensables.xlsx'}", 'rb') as xlsx:
     st.download_button(
         label="Descargar Excel",
         data=xlsx,

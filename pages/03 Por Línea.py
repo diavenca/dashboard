@@ -48,17 +48,17 @@ st.markdown('**Seleccione una o varias Líneas para ver el detalle:**')
 
 df = gr.graph_table_select(df_linea_met_print)
 
-df_linea_met_print.set_index('Línea', inplace=True)
-df_linea_met_print.to_excel(f"{BASE_DIR / 'data/out/lineas_productos_{hoy}.xlsx'}")
+# df_linea_met_print.set_index('Línea', inplace=True)
+# df_linea_met_print.to_excel(f"{BASE_DIR / 'data/out/lineas_productos.xlsx'}")
 
-st.markdown('**Descargue un archivo Excel con la lista de Líneas de Productos:**')
-with open(f"{BASE_DIR / 'data/out/lineas_productos_{hoy}.xlsx'}", 'rb') as xlsx:
-    st.download_button(
-        label="Descargar Excel",
-        data=xlsx,
-        file_name='lineas_productos_{hoy}.xlsx',
-        mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    )
+# st.markdown('**Descargue un archivo Excel con la lista de Líneas de Productos:**')
+# with open(f"{BASE_DIR / 'data/out/lineas_productos.xlsx'}", 'rb') as xlsx:
+#     st.download_button(
+#         label="Descargar Excel",
+#         data=xlsx,
+#         file_name='lineas_productos_{hoy}.xlsx',
+#         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+#     )
 
 
 if not df.empty :

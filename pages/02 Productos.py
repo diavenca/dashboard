@@ -32,13 +32,13 @@ df_sin_ventas_print.columns = ['Código', 'Producto', 'Línea', 'Stock', 'Fecha 
 df_sin_ventas_print = df_sin_ventas_print.sort_values('Stock', ascending=False)
 
 df_sin_ventas_print.set_index('Código', inplace=True)
-df_sin_ventas_print.to_excel(f"{BASE_DIR / 'data/out/productos_sin_ventas_{hoy}.xlsx'}")
+df_sin_ventas_print.to_excel(f"{BASE_DIR / 'data/out/productos_sin_ventas.xlsx'}")
 
 st.markdown('''**Descargue un archivo Excel con la lista de Productos Sin Ventas:** 
 
 Se trata de todos los productos que no se han vendido al menos desde el 2020.''')
 
-with open(f"{BASE_DIR / 'data/out/productos_sin_ventas_{hoy}.xlsx'}", 'rb') as xlsx:
+with open(f"{BASE_DIR / 'data/out/productos_sin_ventas.xlsx'}", 'rb') as xlsx:
     st.download_button(
         label="Descargar Excel",
         data=xlsx,
