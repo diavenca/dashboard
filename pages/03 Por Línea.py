@@ -69,7 +69,7 @@ if not df.empty :
 
     df_ventas_linea_mes = lec.leer_metricas(df_ventas_linea, ['mes_año', 'linea']) 
 
-    st.markdown(f'**Ventas en $ {linea_selected}**')
+    st.markdown(f'**Ventas en $ {linea_selected[0]}**')
     metrica='monto_dolar'
     titulo='Ventas en $'
     color='goldgreen'
@@ -79,7 +79,7 @@ if not df.empty :
     st.altair_chart(graph1, use_container_width=False)
 
 
-    st.markdown(f'**Volumen de Ventas {linea_selected}**')
+    st.markdown(f'**Volumen de Ventas {linea_selected[0]}**')
     metrica='cantidad'
     titulo='Volumen de Ventas'
     color='purpleblue'
@@ -89,7 +89,7 @@ if not df.empty :
     st.altair_chart(graph2, use_container_width=False)
 
 
-    st.markdown(f'**Número de Facturas {linea_selected}**')
+    st.markdown(f'**Número de Facturas {linea_selected[0]}**')
     metrica='num'
     titulo='N° Facturas'
     color='yelloworangebrown'

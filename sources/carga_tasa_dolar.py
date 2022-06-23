@@ -122,15 +122,11 @@ def actualizar_dolar():
 
     if hoy > fecha: 
 
-        st.write('Actualizar dolar')
-
         fecha = fecha.strftime('%d-%m-%Y')
         fecha = datetime.strptime(fecha, '%d-%m-%Y') 
     
         df = leer_pagina(fecha)
         df = transformar(df)
-
-        st.dataframe(df)
 
         guardar_datos_bd(df)
     

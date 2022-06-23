@@ -54,10 +54,10 @@ df = gr.graph_table_select(df_indispensables_print)
 
 df_indispensables_print.set_index('Código', inplace=True)
 
-df_indispensables_print.to_excel(f"{BASE_DIR / 'data/out/productos_indispensables.xlsx'}")
+FILE = df_indispensables_print.to_excel('productos_indispensables.xlsx')
 
 st.markdown('**Descargue un archivo Excel con la lista de Productos Indispensables:**')
-with open("{BASE_DIR / 'data/out/productos_indispensables.xlsx'}", 'rb') as xlsx:
+with open(FILE, 'rb') as xlsx:
     st.download_button(
         label="Descargar Excel",
         data=xlsx,
