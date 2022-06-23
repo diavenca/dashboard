@@ -64,7 +64,7 @@ files = st.file_uploader('Cargar Archivo Stock', type=['xls'], key='up_stock', a
 
 if files:
 
-    if st.button('Procesar Datos', key='pr_ventas'):
+    if st.button('Procesar Datos', key='pr_stock'):
 
         for file in files:
 
