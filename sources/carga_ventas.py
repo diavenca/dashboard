@@ -3,6 +3,8 @@ import datetime
 
 import sources.bd as bd
 
+import streamlit as st
+
 
 # Lectura de los archivos y creación de un DF con todos los datos
 
@@ -46,7 +48,8 @@ def read_files(file, col, long):
 def seleccionar_cols(df):
 
     df_aux = df[~df.Número.str.contains('Totales')]
-    cols = ['num', 'reng', 'fecha_comp', 'vendedor', 'almacen', 'cantidad','und', 'precio', 'base', 'iva', 'otros', 'neto', 'tipo']
+
+    cols = ['num', 'reng', 'fecha_comp', 'cliente', 'vendedor', 'almacen', 'cantidad','und', 'precio', 'base', 'iva', 'otros', 'neto', 'tipo']
     df_aux.columns = cols
     df_aux = df_aux.loc[:,['num', 'fecha_comp', 'vendedor', 'cantidad', 'neto', 'tipo']]
 

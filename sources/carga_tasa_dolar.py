@@ -9,8 +9,6 @@ from datetime import date, datetime
 
 import sources.bd as bd
 
-import streamlit as st
-
 hoy = str(date.today())
 hoy = datetime.strptime(hoy, '%Y-%m-%d') 
 
