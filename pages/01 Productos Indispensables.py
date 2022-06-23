@@ -58,12 +58,12 @@ df_indispensables_print.set_index('Código', inplace=True)
 
 # st.markdown('**Descargue un archivo Excel con la lista de Productos Indispensables:**')
 # with open(FILE, 'rb') as xlsx:
-st.download_button(
-    label="Descargar Excel",
-    data=df_indispensables_print.to_excel('productos_indispensables.xlsx'),
-    file_name=f'productos_indispensables_{hoy}.xlsx',
-    mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-)
+# st.download_button(
+#     label="Descargar Excel",
+#     data=df_indispensables_print.to_excel('productos_indispensables.xlsx'),
+#     file_name=f'productos_indispensables_{hoy}.xlsx',
+#     mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+# )
 
 if not df.empty :
 
