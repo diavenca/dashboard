@@ -47,6 +47,18 @@ st.markdown('**Seleccione un vendedor para ver el detalle:**')
 
 df = gr.graph_table_select(df_vendedor_print)
 
+st.markdown('**Comparativo de Ventas Mensuales en $ por Vendedor**')
+
+df_ventas_comp = lec.leer_metricas(df_ventas_año, ['mes_año', 'vendedor']) 
+metrica='monto_dolar'
+titulo='Ventas en $'
+met_col='vendedor'
+
+graph_line = gr.graph_lines(df_ventas_comp, metrica, titulo, met_col)
+
+st.altair_chart(graph_line, use_container_width=False)
+
+
 if not df.empty :
 
     vend_selected = df['Vendedor'].to_list()

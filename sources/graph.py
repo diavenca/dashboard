@@ -182,9 +182,10 @@ def graph_table_select(df):
 
 
 
-def graph_lines(df, met, titulo):
+def graph_lines(df, met, titulo, met_col):
 
     metrica = 'sum(' + met + '):Q'
+    met_color = met_col + ':N'
 
     x=alt.X('yearmonth(fecha):T', title='Mes y Año', axis = alt.Axis(labelAngle=0, labelFontSize=14))
     
@@ -192,17 +193,17 @@ def graph_lines(df, met, titulo):
     # Cuando el mouse se acerca a la línea de un producto, 
     # esta aumenta de grosor
     highlight = alt.selection(type='single', on='mouseover',
-                            fields=['linea'], nearest=True)
+                            fields=[met_col], nearest=True)
 
 
     base = alt.Chart(df).mark_line().encode(
         x = x,
         y = alt.Y(metrica, title = titulo, scale=alt.Scale(zero=False), 
                 axis = alt.Axis(grid=True, titleAnchor='middle', titleAngle = 270, labelFontSize=10)),
-        color = alt.Color('linea:N'), 
+        color = alt.Color(met_color), 
         tooltip = [alt.Tooltip('yearmonth(fecha):T', title='Mes y Año'),
-                alt.Tooltip('linea', title='Línea'), 
-                alt.Tooltip(metrica, title=titulo, format=',.4',)]
+                alt.Tooltip(met_col, title=met_col), 
+                alt.Tooltip(metrica, title=titulo, format=',.6',)]
     )
 
 
