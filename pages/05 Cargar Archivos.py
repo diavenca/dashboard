@@ -28,8 +28,10 @@ st.subheader('Cargar Datos Ventas')
 st.markdown('''Seleccione los archivos con los nuevos datos de las **Ventas**.
 
 Son 2 archivos:
-- Facturas (el nombre debe comenzar por "fa")
-- Notas de Entrega (el nombre debe comenzar por "ne". Recuerde convertir los montos que están en COP)
+- Facturas (el nombre debe comenzar por "fa"): **Reporte Factura por Artículo 2**
+- Notas de Entrega (el nombre debe comenzar por "ne"): **Reporte NE por Artículo 2**
+
+Para las NE, recuerde convertir los montos que están en COP: Verifique los montos de **Precio Unitario** y **Neto**.
 
 Recuerde buscar los reportes en el Profit, que sean las ventas a partir de la última fecha y guardar los reportes como **Excel Solo Datos**.
 
