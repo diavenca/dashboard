@@ -40,12 +40,12 @@ st.markdown('**Seleccione uno o varios años para analizar:**')
 
 años = [2021, 2022, 'Todo']
 
-año = st.multiselect(label='', options=años, default='Todo', help = 'Escoja un año para el análisis')
+año_ind = st.multiselect(label='', options=años, default='Todo', help = 'Escoja un año para el análisis')
 
-if año==['Todo'] or not año:
+if año_ind==['Todo'] or not año_ind:
     df_ventas_año = df_ventas.loc[:,['fecha', 'cod', 'producto', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año']]
 else:
-    df_ventas_año = df_ventas.loc[df_ventas.año.isin(año),['fecha', 'cod', 'producto', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año']]
+    df_ventas_año = df_ventas.loc[df_ventas.año.isin(año_ind),['fecha', 'cod', 'producto', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año']]
 
 
 fecha_max = df_stock.fecha_stock.max().strftime("%d/%m/%Y")

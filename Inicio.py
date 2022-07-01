@@ -31,12 +31,12 @@ st.markdown('**Seleccione uno o varios años para analizar:**')
 
 años = [2020, 2021, 2022, 'Todo']
 
-año = st.multiselect(label='', options=años, default='Todo', help = 'Escoja un año para el análisis')
+año_inic = st.multiselect(label='', options=años, default='Todo', help = 'Escoja un año para el análisis')
 
-if año==['Todo'] or not año:
+if año_inic==['Todo'] or not año_inic:
     df_ventas_año = df_ventas.loc[:,['fecha', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año', 'tipo']]
 else:
-    df_ventas_año = df_ventas.loc[df_ventas.año.isin(año),['fecha', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año', 'tipo']]
+    df_ventas_año = df_ventas.loc[df_ventas.año.isin(año_inic),['fecha', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año', 'tipo']]
 
 # Dataframes para los gráficos y métricas
 

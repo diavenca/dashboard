@@ -40,12 +40,12 @@ st.markdown('**Seleccione uno o varios años para analizar:**')
 
 años = [2021, 2022, 'Todo']
 
-año = st.multiselect(label='', options=años, default='Todo', help = 'Escoja un año para el análisis')
+año_lin = st.multiselect(label='', options=años, default='Todo', help = 'Escoja un año para el análisis')
 
-if año==['Todo'] or not año:
+if año_lin==['Todo'] or not año_lin:
     df_ventas_año = df_linea_prod.loc[:,['fecha', 'linea', 'cod', 'producto', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año']]
 else:
-    df_ventas_año = df_linea_prod.loc[df_linea_prod.año.isin(año),['fecha', 'linea', 'cod', 'producto', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año']]
+    df_ventas_año = df_linea_prod.loc[df_linea_prod.año.isin(año_lin),['fecha', 'linea', 'cod', 'producto', 'cantidad', 'monto_dolar', 'num', 'mes_año', 'año']]
 
 
 
