@@ -40,7 +40,7 @@ def tratar_ventas(file):
 
         cv.guardar_datos_bd(df)
 
-        em.enviar_correo('diavenca.cm@gmail.com', 'diavenca.cm@gmail.com', titulo='Archivo Ventas', file=file)
+        #em.enviar_correo('diavenca.cm@gmail.com', 'diavenca.cm@gmail.com', titulo='Archivo Ventas', file=file)
 
         result_ok = True
 
@@ -56,7 +56,7 @@ def tratar_stock(file):
 
     #st.write(file.name)
 
-    em.enviar_correo('diavenca.cm@gmail.com', 'diavenca.cm@gmail.com', asunto='Archivo Stock', file=file)
+    #em.enviar_correo('diavenca.cm@gmail.com', 'diavenca.cm@gmail.com', asunto='Archivo Stock', file=file)
 
     result_ok = True
 
