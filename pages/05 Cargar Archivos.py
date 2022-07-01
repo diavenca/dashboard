@@ -59,7 +59,7 @@ if files:
 
 st.subheader('Cargar Datos Stock')
 
-st.markdown('Seleccione el archivo con los datos del **Stock**.')
+st.markdown('Seleccione el archivo con los datos del **Stock**: **Reporte Artículos con su Stock Toma de Inventario**')
 
 
 files = st.file_uploader('Cargar Archivo Stock', type=['xls', 'xlsx'], key='up_stock', accept_multiple_files=True, help='Cargue los archivos con las últimas ventas')
