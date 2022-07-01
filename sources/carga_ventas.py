@@ -25,7 +25,14 @@ def probar_existencia(df):
 
     result = bd.ejecutar_consulta(query, conn, False)
 
-    if result[0] < min_num and result[1] < min_fecha:
+    # st.write('tipo', tipo)
+    # st.write('max(max_num)', result[0])
+    # st.write('max(max_fecha)', result[1])
+    # st.write('max(min_num)', min_num)
+    # st.write('min_fecha', min_fecha)
+
+    # if result[0] < min_num and result[1] < min_fecha:
+    if result[1] < min_fecha:
         existe = False
 
         query = f'INSERT INTO control VALUES("{hoy}","{min_num}", "{max_num}","{min_fecha}", "{max_fecha}", "{tipo}")'
