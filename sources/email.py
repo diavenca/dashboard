@@ -10,14 +10,8 @@ PWD_EMAIL='DiavencaCM2018'
 
 # El destinatario puede ser una lista de emails
 
-def enviar_correo(remite, dest, titulo=None, texto=None, file=None):
+def enviar_correo(remitente, destinatarios, asunto=None, cuerpo='', file=None):
  
-    # Iniciamos los parámetros del script
-    remitente = remite
-    destinatarios = dest
-    asunto = titulo
-    cuerpo = texto
-
     if file:
         ruta_adjunto = file
         nombre_adjunto = file
@@ -32,20 +26,22 @@ def enviar_correo(remite, dest, titulo=None, texto=None, file=None):
     
     # Agregamos el cuerpo del mensaje como objeto MIME de tipo texto
     mensaje.attach(MIMEText(cuerpo, 'plain'))
+
+    if file:
     
-    # Abrimos el archivo que vamos a adjuntar
-    archivo_adjunto = open(ruta_adjunto, 'rb')
-    
-    # Creamos un objeto MIME base
-    adjunto_MIME = MIMEBase('application', 'octet-stream')
-    # Y le cargamos el archivo adjunto
-    adjunto_MIME.set_payload((archivo_adjunto).read())
-    # Codificamos el objeto en BASE64
-    encoders.encode_base64(adjunto_MIME)
-    # Agregamos una cabecera al objeto
-    adjunto_MIME.add_header('Content-Disposition', "attachment; filename= %s" % nombre_adjunto)
-    # Y finalmente lo agregamos al mensaje
-    mensaje.attach(adjunto_MIME)
+        # Abrimos el archivo que vamos a adjuntar
+        #archivo_adjunto = open(ruta_adjunto, 'rb')
+        
+        # Creamos un objeto MIME base
+        adjunto_MIME = MIMEBase('application', 'octet-stream')
+        # Y le cargamos el archivo adjunto
+        adjunto_MIME.set_payload((nombre_adjunto).read())
+        # Codificamos el objeto en BASE64
+        encoders.encode_base64(adjunto_MIME)
+        # Agregamos una cabecera al objeto
+        adjunto_MIME.add_header('Content-Disposition', "attachment; filename= %s" % nombre_adjunto)
+        # Y finalmente lo agregamos al mensaje
+        mensaje.attach(adjunto_MIME)
     
     # Creamos la conexión con el servidor
     sesion_smtp = smtplib.SMTP('smtp.gmail.com', 587)

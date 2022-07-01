@@ -71,7 +71,8 @@ if files:
         for file in files:
 
             if  cr.tratar_stock(file):
-                st.success(f"Los datos del archivo {file} han sido integrados exitosamente")
+                archivo = file.name
+                st.success(f"Los datos del archivo {archivo} han sido integrados exitosamente")
             else:
-                st.error(f"Los datos del archivo {file} ya han sido integrados")
+                st.error(f"Los datos del archivo {archivo} ya han sido integrados")
 

@@ -6,6 +6,8 @@ import sources.carga_stock as cs
 import sources.carga_tasa_dolar as cd
 import sources.email as em
 
+import streamlit as st
+
 def leer_fechas():
 
     conn = bd.conectarse()
@@ -52,7 +54,9 @@ def tratar_stock(file):
     df = cs.transformar_stock(df)
     cs.guardar_datos_bd(df)
 
-    em.enviar_correo('diavenca.cm@gmail.com', 'diavenca.cm@gmail.com', titulo='Archivo Stock', file=file)
+    #st.write(file.name)
+
+    em.enviar_correo('diavenca.cm@gmail.com', 'diavenca.cm@gmail.com', asunto='Archivo Stock', file=file)
 
     result_ok = True
 
